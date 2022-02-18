@@ -1,36 +1,54 @@
-print("hello!") 
-
-local Endpoint = "https://nekos.life/api/v2/img/"
-local Choices = {
-    "yuri", -- Type = GIF or IMAGE
-    "boobs", -- Type = GIF OR IMAGE
-    "nsfw_neko_gif", -- Type = GIF
-    "lewdk", -- Type = GIF or IMAGE
-    "Random_hentai_gif", -- Type = GIF
-    "hentai", -- TYPE = GIF or IMAGE
-    "pussy_jpg" -- TYPE = IMAGE
+local words = {
+    'ur bad',
+    'ur dog🐶',
+    'aim left faster then your dad🍼',
+    'my grandma is better then you',
+    'clowned🤡',
+    'sonned🤓',
+    'your dog water🐶🌊', 
+    'son ur dog quit crying', 
+    'my grandmother can aim better',
+    'you are actual dog get airshot buddy',
+    'bro isnt a clown hes the entire circus🤡🍿🍦🎪🎈',
+    'bro isnt a clown nor the circus dude is the entire comical industry🤡🍿🎪🎈',
+    'you suck bro', 
+    'wyd bro aiming is ez 😅', 
+    'dude why are u so bad😂😂',
+    'dude quit being free', 
+    'ur clowning bro wyd🥱',
+    'just aim dude😑',
+    'bro 100 pumped the wall😂',
+    'bro the wall must hurt rn😞',
+    'rodent🐭', 
+    'no one likes u🤨', 
+    'you were so close! better luck next time!😣', 
+    'XD😂', 
+    'no skill😮',
+    'why do u even try😂',
+    'if the body is 70% water how are u 100% salt 🤨', 
+    './e dab', 
+    'time to take out the trash! 🙄🗑', 
+    'im surprised you havent rage quit yet😂', 
+    'bro quit crying and get better😴', 
+    'haha I won🤓🤓', 
+    'trash🗑', 
+    'ez', 
+    'salty', 
+    'did you get worse?🤨',
+    'why are u still trying bro😂', 
+    'dude just quit already😂', 
+    'looolloolloololl', 
+    'bro has bipolar aim 🤡🤓', 
+    '😴😴😴😴',
+    'temp is so sexy',
 }
-local x = 1
-local http = game:GetService("HttpService")
+local player = game.Players.LocalPlayer
+local keybind = 'v'
 
-while wait() do
-    local Type = Choices[math.random(1, 7)]
-    x = x + 1
-    local body =
-        syn.request(
-        {
-            Url = Endpoint .. Type
-        }
-    ).Body
-    local Decoded = http:JSONDecode(body)
-    local URL = Decoded.url
-    if URL:find(".gif") or (".Gif") then
-        writefile(tostring(x) .. "_" .. Type .. ".gif", game:HttpGet(URL))
-    elseif URL:find(".png") or (".jpg") then
-        writefile(tostring(x) .. "_" .. Type .. ".png", game:HttpGet(URL))
-    else
-        warn("IMAGE INVALID. POSSIBLE ERROR")
+local event = game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest
+
+player:GetMouse().KeyDown:connect(function(key)
+    if key == keybind then
+        event:FireServer(words[math.random, wait(0.1)(#words)], "All")
     end
-end
-
-print("you is done nigga. from temp!")
+end) 
