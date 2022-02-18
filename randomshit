@@ -1,3 +1,4 @@
+rconsoleprint(test 1)
 local words = {
     'ur bad',
     'ur dog🐶',
